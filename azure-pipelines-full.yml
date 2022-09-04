@@ -1,0 +1,46 @@
+trigger:
+  branches:
+    include:
+      - master
+      - develop
+      - release/*
+
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: BUILD_DEPLOY_nginx_1
+    displayName: Build and deploy nginx_1 service
+    dependsOn:
+    variables:
+      goal: 1
+    jobs:
+      - job: nginx_1
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - template: azure-pipelines/steps.yml
+  - stage: BUILD_DEPLOY_nginx_2
+    displayName: Build and deploy nginx_2 service
+    dependsOn:
+    variables:
+      goal: 2
+    jobs:
+      - job: nginx_2
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - template: azure-pipelines/steps.yml
+  - stage: BUILD_DEPLOY_nginx_3
+    displayName: Build and deploy nginx_3 service
+    dependsOn:
+    variables:
+      goal: 3
+    jobs:
+      - job: nginx_3
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - template: azure-pipelines/steps.yml

@@ -1,0 +1,4 @@
+namespace: 'mshekhawat'
+service:
+  name: 'nginx-2'
+  port: '8085'

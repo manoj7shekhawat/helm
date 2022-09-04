@@ -1,0 +1,4 @@
+namespace: 'mshekhawat'
+service:
+  name: 'nginx-1'
+  port: '8084'
